@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scrapbook Ulang Tahun</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page">
+      <h1>Selamat Ulang Tahun, Mamam Sayang💌</h1>
+
+      <div class="photo-section">
+        <div class="flip-card" onclick="flipCard(this)">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <img src="images/foto1.jpg" alt="Foto 1" />
+            </div>
+            <div class="flip-back">
+              <p>Pantai Karang Pandan 😍</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card" onclick="flipCard(this)">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <img src="images/foto2.jpg" alt="Foto 2" />
+            </div>
+            <div class="flip-back">
+              <p>Awal Pertemuan 💕</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="note-card">
+        <p>
+          Happy birthday, my beloved! <br />
+          I wish you endless happiness and love.<br />
+          Thank you for bringing so much joy into my life.<br /><br />
+          Semoga semua mimpi jadi nyata di tahun 2025 ini 🌸<br />
+          Love you always. 💖
+        </p>
+      </div>
+
+      <button onclick="openLetter()">💌 Buka Surat</button>
+
+      <div class="popup hidden" id="loveLetter">
+        <div class="envelope">
+          <div class="flap"></div>
+          <div class="letter">
+            <h2>Untuk Wanita Tercantik</h2>
+            <p>
+              haloo cantikkk, selamatt ulangg tahun yaaa sayanggg, semogaa
+              rezekinya di lancarkan dan segala urusann dan semogaa kamu sehat2
+              truus yaa, bocil berharap semoga mamam bisa menjadi pribadi yangg
+              lebih baik kedepannyaa,<br />
+              tambah dewasa, terimakasih udah menjadi perempuan yang kuat sampai
+              saat ini, terimakasih udah bertahan sampai selama ini, dan
+              terimakasii udah menjadi perempuan yang hebat.<br />
+              bahagia selalu yaa sayanggg.<br />
+              Maam hadiah terindah yang Tuhan kirim ke hidup bocil. 🎁
+            </p>
+          </div>
+          <span onclick="closeLetter()">Tutup ✖️</span>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function openLetter() {
+        document.getElementById("loveLetter").classList.remove("hidden");
+      }
+
+      function closeLetter() {
+        document.getElementById("loveLetter").classList.add("hidden");
+      }
+
+      function flipCard(card) {
+        card.querySelector(".flip-inner").classList.toggle("flipped");
+      }
+    </script>
+  </body>
+</html>

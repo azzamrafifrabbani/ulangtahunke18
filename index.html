@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Selamat Ulang Tahun!</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.0/dist/confetti.browser.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Shadows Into Light", cursive;
+        background: linear-gradient(to top, #fff0f5, #ffe4e1);
+        overflow: hidden;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      h1 {
+        font-size: 3em;
+        color: #d94f6d;
+        margin-top: 20px;
+      }
+
+      p {
+        color: #555;
+        font-size: 1.2em;
+        margin-top: 10px;
+        margin-bottom: 20px;
+      }
+
+      .cake {
+        position: relative;
+        margin-top: 30px;
+      }
+
+      .tier {
+        background: #fff5f5;
+        border: 4px solid #f48fb1;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin: 0 auto;
+      }
+
+      .tier-1 {
+        width: 160px;
+        height: 50px;
+      }
+      .tier-2 {
+        width: 120px;
+        height: 50px;
+        margin-top: -10px;
+      }
+      .tier-3 {
+        width: 80px;
+        height: 40px;
+        margin-top: -10px;
+      }
+
+      .cherry {
+        width: 10px;
+        height: 10px;
+        background: red;
+        border-radius: 50%;
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        box-shadow: -20px 0 red, 20px 0 red;
+      }
+
+      .candle {
+        width: 10px;
+        height: 30px;
+        background: #fff;
+        border-radius: 2px;
+        position: absolute;
+        top: -40px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+      }
+
+      .flame {
+        width: 14px;
+        height: 20px;
+        background: orange;
+        border-radius: 50% 50% 50% 50%;
+        position: absolute;
+        top: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        animation: flicker 1s infinite alternate;
+        z-index: 10;
+      }
+
+      @keyframes flicker {
+        0% {
+          transform: translateX(-50%) scale(1);
+          opacity: 1;
+        }
+        100% {
+          transform: translateX(-50%) scale(1.1);
+          opacity: 0.8;
+        }
+      }
+
+      .click-text {
+        animation: pulse 1.5s infinite;
+        font-size: 1.1em;
+        color: #888;
+      }
+
+      @keyframes pulse {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.4;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      /* Balon */
+      .balloon {
+        position: absolute;
+        bottom: -100px;
+        width: 40px;
+        height: 55px;
+        background-color: #fdd835;
+        border-radius: 50% 50% 50% 50%;
+        animation: float 6s linear infinite;
+      }
+
+      .balloon::after {
+        content: "";
+        position: absolute;
+        bottom: -20px;
+        left: 50%;
+        width: 2px;
+        height: 20px;
+        background: #666;
+        transform: translateX(-50%);
+      }
+
+      .balloon:nth-child(1) {
+        left: 10%;
+        background-color: #ff8a80;
+        animation-delay: 0s;
+      }
+      .balloon:nth-child(2) {
+        left: 30%;
+        background-color: #80d8ff;
+        animation-delay: 1s;
+      }
+      .balloon:nth-child(3) {
+        left: 50%;
+        background-color: #ffd180;
+        animation-delay: 2s;
+      }
+      .balloon:nth-child(4) {
+        left: 70%;
+        background-color: #cf93d9;
+        animation-delay: 3s;
+      }
+      .balloon:nth-child(5) {
+        left: 90%;
+        background-color: #a5d6a7;
+        animation-delay: 4s;
+      }
+
+      @keyframes float {
+        0% {
+          bottom: -100px;
+          opacity: 0;
+        }
+        10% {
+          opacity: 1;
+        }
+        100% {
+          bottom: 110%;
+          opacity: 0;
+        }
+      }
+
+      audio {
+        display: none;
+      }
+    </style>
+  </head>
+  <body onclick="goToMain()">
+    <!-- Balon -->
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+
+    <!-- Kue -->
+    <div class="cake">
+      <div class="candle">
+        <div class="flame"></div>
+      </div>
+      <div class="tier tier-3"></div>
+      <div class="tier tier-2"></div>
+      <div class="tier tier-1"></div>
+      <div class="cherry"></div>
+    </div>
+
+    <h1>Selamat Ulang Tahun Aliifah Aulia Fathin🎂</h1>
+    <p>
+      Selamat bertambah usia perempuan kuat, hari ini tepatnya tanggal 14 Juni
+      2025, <br />
+      perempuan cantik, perempuan cerdas, perempuan baik, perempuan manis,
+      perempuan yang suka hal-hal sederhana, <br />
+      perempuan yang selalu tersenyum, perempuann yang terkadang menjadi seorang
+      komedian untuk dirinya dan orang lain, <br />
+      perempuan yang kalau sedih dan senang larinya ke sajak. Semoga keberkahan
+      selalu menyertai di setiap langkahmu, dan tetaplah bahagia.
+    </p>
+    <p class="click-text">Klik di mana saja untuk lanjut 🎈</p>
+
+    <!-- Musik -->
+    <audio id="music" autoplay loop>
+      <source
+        src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+        type="audio/mpeg"
+      />
+      Musik tidak didukung
+    </audio>
+
+    <script>
+      // Jalankan confetti saat halaman dibuka
+      window.onload = function () {
+        confetti({
+          particleCount: 150,
+          spread: 70,
+          origin: { y: 0.6 },
+        });
+
+        // Musik play otomatis setelah interaksi (browser policy)
+        const music = document.getElementById("music");
+        document.body.addEventListener(
+          "click",
+          () => {
+            music.play().catch(() => {});
+          },
+          { once: true }
+        );
+      };
+
+      function goToMain() {
+        window.location.href = "main.html";
+      }
+    </script>
+  </body>
+</html>
